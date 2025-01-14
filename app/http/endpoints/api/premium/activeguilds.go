@@ -1,12 +1,12 @@
 package api
 
 import (
-	dbclient "github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/GoPanel/utils/types"
-	"github.com/TicketsBot/common/model"
-	"github.com/TicketsBot/common/permission"
-	"github.com/TicketsBot/common/premium"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/model"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/permission"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

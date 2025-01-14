@@ -2,7 +2,7 @@ package redis
 
 import (
 	"encoding/json"
-	"github.com/TicketsBot/database"
+	"github.com/jadevelopmentgrp/Ticket-Database"
 	"github.com/apex/log"
 )
 

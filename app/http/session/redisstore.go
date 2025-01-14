@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	wrapper "github.com/TicketsBot/GoPanel/redis"
+	wrapper "github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
 	"github.com/go-redis/redis/v8"
 	"time"
 )

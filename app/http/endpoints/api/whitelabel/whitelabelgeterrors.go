@@ -1,8 +1,8 @@
 package api
 
 import (
-	"github.com/TicketsBot/GoPanel/app"
-	"github.com/TicketsBot/GoPanel/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

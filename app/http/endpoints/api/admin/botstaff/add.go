@@ -1,8 +1,8 @@
 package botstaff
 
 import (
-	"github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/gin-gonic/gin"
 	"strconv"
 )

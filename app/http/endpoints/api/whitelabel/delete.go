@@ -1,10 +1,10 @@
 package api
 
 import (
-	"github.com/TicketsBot/GoPanel/app"
-	"github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/redis"
-	"github.com/TicketsBot/common/whitelabeldelete"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/whitelabeldelete"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

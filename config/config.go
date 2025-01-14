@@ -11,7 +11,6 @@ type Config struct {
 	Admins          []uint64      `env:"ADMINS"`
 	ForceWhitelabel []uint64      `env:"FORCED_WHITELABEL"`
 	Debug           bool          `env:"DEBUG"`
-	SentryDsn       *string       `env:"SENTRY_DSN"`
 	JsonLogs        bool          `env:"JSON_LOGS" envDefault:"false"`
 	LogLevel        zapcore.Level `env:"LOG_LEVEL" envDefault:"info"`
 	Server          struct {

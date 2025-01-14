@@ -2,11 +2,11 @@ package utils
 
 import (
 	"context"
-	"github.com/TicketsBot/GoPanel/botcontext"
-	dbclient "github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/internal/api"
-	"github.com/TicketsBot/common/permission"
-	"github.com/TicketsBot/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/internal/api"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/permission"
+	"github.com/jadevelopmentgrp/Ticket-Database"
 	"github.com/rxdn/gdl/objects/member"
 	"net/http"
 )

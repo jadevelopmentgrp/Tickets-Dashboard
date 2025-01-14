@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/TicketsBot/common/secureproxy"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/secureproxy"
 )
 
 var SecureProxyClient *secureproxy.Client

@@ -1,11 +1,11 @@
 package api
 
 import (
-	"github.com/TicketsBot/GoPanel/app"
-	"github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/redis"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/common/statusupdates"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/statusupdates"
 	"github.com/gin-gonic/gin"
 	"github.com/rxdn/gdl/objects/user"
 	"net/http"

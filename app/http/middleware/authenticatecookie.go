@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"github.com/TicketsBot/GoPanel/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 )

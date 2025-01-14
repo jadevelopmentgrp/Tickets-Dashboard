@@ -1,7 +1,7 @@
 package chatreplica
 
 import (
-	v2 "github.com/TicketsBot/logarchiver/pkg/model/v2"
+	v2 "github.com/jadevelopmentgrp/Ticket-Archiver/pkg/model/v2"
 	"github.com/rxdn/gdl/objects/channel"
 	"github.com/rxdn/gdl/objects/channel/embed"
 	"github.com/rxdn/gdl/objects/channel/message"

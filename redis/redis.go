@@ -3,7 +3,7 @@ package redis
 import (
 	"context"
 	"fmt"
-	"github.com/TicketsBot/GoPanel/config"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
 	"github.com/go-redis/redis/v8"
 	"time"
 )

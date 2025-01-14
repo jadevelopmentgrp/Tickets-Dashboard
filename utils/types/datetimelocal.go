@@ -2,7 +2,7 @@ package types
 
 import (
 	"fmt"
-	"github.com/TicketsBot/GoPanel/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"time"
 )
 

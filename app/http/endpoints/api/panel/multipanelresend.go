@@ -3,11 +3,11 @@ package api
 import (
 	"context"
 	"errors"
-	"github.com/TicketsBot/GoPanel/botcontext"
-	dbclient "github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/rpc"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/common/premium"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
 	"github.com/gin-gonic/gin"
 	"github.com/rxdn/gdl/rest"
 	"github.com/rxdn/gdl/rest/request"
@@ -60,13 +60,6 @@ func MultiPanelResend(ctx *gin.Context) {
 		}
 	}
 
-	// get premium status
-	premiumTier, err := rpc.PremiumClient.GetTierByGuildId(ctx, guildId, true, botContext.Token, botContext.RateLimiter)
-	if err != nil {
-		ctx.JSON(500, utils.ErrorJson(err))
-		return
-	}
-
 	panels, err := dbclient.Client.MultiPanelTargets.GetPanels(ctx, multiPanel.Id)
 	if err != nil {
 		ctx.JSON(500, utils.ErrorJson(err))
@@ -74,7 +67,7 @@ func MultiPanelResend(ctx *gin.Context) {
 	}
 
 	// send new message
-	messageData := multiPanelIntoMessageData(multiPanel, premiumTier > premium.None)
+	messageData := multiPanelIntoMessageData(multiPanel, true)
 	messageId, err := messageData.send(botContext, panels)
 	if err != nil {
 		var unwrapped request.RestError

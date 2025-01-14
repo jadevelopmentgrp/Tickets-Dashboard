@@ -3,11 +3,11 @@ package api
 import (
 	"context"
 	"errors"
-	"github.com/TicketsBot/GoPanel/botcontext"
-	dbclient "github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/rpc"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/common/premium"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
 	"github.com/gin-gonic/gin"
 	"github.com/rxdn/gdl/rest"
 	"github.com/rxdn/gdl/rest/request"
@@ -47,11 +47,6 @@ func ResendPanel(ctx *gin.Context) {
 		return
 	}
 
-	if panel.ForceDisabled {
-		ctx.JSON(400, utils.ErrorStr("This panel is disabled and cannot be modified: please reactivate premium to re-enable it"))
-		return
-	}
-
 	// delete old message
 	// TODO: Use proper context
 	if err := rest.DeleteMessage(context.Background(), botContext.Token, botContext.RateLimiter, panel.ChannelId, panel.GuildId); err != nil {
@@ -61,14 +56,8 @@ func ResendPanel(ctx *gin.Context) {
 			return
 		}
 	}
-
-	premiumTier, err := rpc.PremiumClient.GetTierByGuildId(ctx, guildId, true, botContext.Token, botContext.RateLimiter)
-	if err != nil {
-		ctx.JSON(500, utils.ErrorJson(err))
-		return
-	}
-
-	messageData := panelIntoMessageData(panel, premiumTier > premium.None)
+	
+	messageData := panelIntoMessageData(panel, true)
 	msgId, err := messageData.send(botContext)
 	if err != nil {
 		var unwrapped request.RestError

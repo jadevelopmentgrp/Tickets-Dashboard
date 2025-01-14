@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/TicketsBot/GoPanel/config"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
 	"github.com/golang-jwt/jwt"
 	"github.com/google/uuid"
 	"strconv"

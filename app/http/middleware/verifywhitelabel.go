@@ -2,10 +2,10 @@ package middleware
 
 import (
 	"fmt"
-	"github.com/TicketsBot/GoPanel/config"
-	"github.com/TicketsBot/GoPanel/rpc"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/common/premium"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
 	"github.com/gin-gonic/gin"
 )
 

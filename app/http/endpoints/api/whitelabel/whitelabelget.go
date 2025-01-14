@@ -2,9 +2,9 @@ package api
 
 import (
 	"context"
-	"github.com/TicketsBot/GoPanel/app"
-	"github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/rxdn/gdl/objects/user"
 	"github.com/rxdn/gdl/rest"

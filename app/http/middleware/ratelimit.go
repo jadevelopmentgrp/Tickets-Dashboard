@@ -2,8 +2,8 @@ package middleware
 
 import (
 	"fmt"
-	"github.com/TicketsBot/GoPanel/redis"
-	"github.com/TicketsBot/GoPanel/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis_rate/v9"
 	"hash/fnv"

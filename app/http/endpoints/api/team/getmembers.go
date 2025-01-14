@@ -3,10 +3,10 @@ package api
 import (
 	"context"
 	"fmt"
-	"github.com/TicketsBot/GoPanel/botcontext"
-	dbclient "github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/utils"
-	syncutils "github.com/TicketsBot/common/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	syncutils "github.com/jadevelopmentgrp/Ticket-Utilities/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/rxdn/gdl/objects/user"
 	"golang.org/x/sync/errgroup"
@@ -132,7 +132,6 @@ func formatMembers(guildId uint64, userIds, roleIds []uint64) ([]entity, error) 
 			// TODO: Use proper context
 			user, err := ctx.GetUser(context.Background(), userId)
 			if err != nil {
-				// TODO: Log w sentry
 				return nil // We should skip the error, since it's probably 403 / 404 etc
 			}
 

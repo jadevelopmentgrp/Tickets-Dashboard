@@ -1,16 +1,18 @@
 # Build
+
 ---
+
 - CLIENT_ID
 - REDIRECT_URI
 - API_URL
 - WS_URL
 
 # Runtime
+
 ---
 
 - ADMINS
 - FORCED_WHITELABEL
-- SENTRY_DSN  
 - SERVER_ADDR
 - METRIC_SERVER_ADDR
 - BASE_URL

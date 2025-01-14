@@ -3,15 +3,15 @@ package api
 import (
 	"context"
 	"errors"
-	"github.com/TicketsBot/GoPanel/app"
-	"github.com/TicketsBot/GoPanel/app/http/validation"
-	"github.com/TicketsBot/GoPanel/botcontext"
-	dbclient "github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/rpc"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/GoPanel/utils/types"
-	"github.com/TicketsBot/common/premium"
-	"github.com/TicketsBot/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app/http/validation"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
+	"github.com/jadevelopmentgrp/Ticket-Database"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 	"github.com/jackc/pgx/v4"
@@ -48,7 +48,7 @@ type panelBody struct {
 	PendingCategory   *uint64                           `json:"pending_category,string"`
 }
 
-func (p *panelBody) IntoPanelMessageData(customId string, isPremium bool) panelMessageData {
+func (p *panelBody) IntoPanelMessageData(customId string) panelMessageData {
 	return panelMessageData{
 		ChannelId:      p.ChannelId,
 		Title:          p.Title,
@@ -61,7 +61,7 @@ func (p *panelBody) IntoPanelMessageData(customId string, isPremium bool) panelM
 		ButtonStyle:    p.ButtonStyle,
 		ButtonLabel:    p.ButtonLabel,
 		ButtonDisabled: p.Disabled,
-		IsPremium:      isPremium,
+		IsPremium:      true,
 	}
 }
 
@@ -85,26 +85,6 @@ func CreatePanel(c *gin.Context) {
 
 	data.MessageId = 0
 
-	// Check panel quota
-	premiumTier, err := rpc.PremiumClient.GetTierByGuildId(c, guildId, false, botContext.Token, botContext.RateLimiter)
-	if err != nil {
-		_ = c.AbortWithError(http.StatusInternalServerError, app.NewServerError(err))
-		return
-	}
-
-	if premiumTier == premium.None {
-		panels, err := dbclient.Client.Panel.GetByGuild(c, guildId)
-		if err != nil {
-			_ = c.AbortWithError(http.StatusInternalServerError, app.NewServerError(err))
-			return
-		}
-
-		if len(panels) >= freePanelLimit {
-			c.JSON(402, utils.ErrorStr("You have exceeded your panel quota. Purchase premium to unlock more panels."))
-			return
-		}
-	}
-
 	// Apply defaults
 	ApplyPanelDefaults(&data)
 
@@ -127,7 +107,7 @@ func CreatePanel(c *gin.Context) {
 	validationContext := PanelValidationContext{
 		Data:       data,
 		GuildId:    guildId,
-		IsPremium:  premiumTier > premium.None,
+		IsPremium:  true,
 		BotContext: botContext,
 		Channels:   channels,
 		Roles:      roles,
@@ -163,7 +143,7 @@ func CreatePanel(c *gin.Context) {
 		return
 	}
 
-	messageData := data.IntoPanelMessageData(customId, premiumTier > premium.None)
+	messageData := data.IntoPanelMessageData(customId, true)
 	msgId, err := messageData.send(botContext)
 	if err != nil {
 		var unwrapped request.RestError

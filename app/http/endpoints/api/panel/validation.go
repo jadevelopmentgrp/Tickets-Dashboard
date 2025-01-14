@@ -4,14 +4,14 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/TicketsBot/GoPanel/app"
-	"github.com/TicketsBot/GoPanel/app/http/validation"
-	"github.com/TicketsBot/GoPanel/app/http/validation/defaults"
-	"github.com/TicketsBot/GoPanel/botcontext"
-	dbclient "github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/GoPanel/utils/types"
-	"github.com/TicketsBot/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app/http/validation"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app/http/validation/defaults"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
+	"github.com/jadevelopmentgrp/Ticket-Database"
 	"github.com/rxdn/gdl/objects/channel"
 	"github.com/rxdn/gdl/objects/guild"
 	"github.com/rxdn/gdl/objects/interaction/component"
@@ -242,10 +242,6 @@ func validatePendingCategory(ctx PanelValidationContext) validation.ValidationFu
 	return func() error {
 		if ctx.Data.PendingCategory == nil {
 			return nil
-		}
-
-		if !ctx.IsPremium {
-			return validation.NewInvalidInputError("Awaiting response category is a premium feature")
 		}
 
 		for _, ch := range ctx.Channels {

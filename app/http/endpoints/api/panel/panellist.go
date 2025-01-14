@@ -2,10 +2,10 @@ package api
 
 import (
 	"context"
-	"github.com/TicketsBot/GoPanel/app"
-	dbclient "github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/utils/types"
-	"github.com/TicketsBot/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
+	"github.com/jadevelopmentgrp/Ticket-Database"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/sync/errgroup"
 	"net/http"

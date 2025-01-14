@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/TicketsBot/GoPanel/config"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
 	"net/http"
 	"strings"
 )

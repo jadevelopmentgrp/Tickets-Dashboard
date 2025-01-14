@@ -1,4 +1,4 @@
-module github.com/TicketsBot/GoPanel
+module github.com/jadevelopmentgrp/Ticket-Dashboard
 
 go 1.22.0
 
@@ -6,14 +6,13 @@ toolchain go1.22.4
 
 require (
 	github.com/BurntSushi/toml v1.2.1
-	github.com/TicketsBot/archiverclient v0.0.0-20241012221057-16a920bfb454
-	github.com/TicketsBot/common v0.0.0-20241117150316-ff54c97b45c1
-	github.com/TicketsBot/database v0.0.0-20241116234225-cdf216a9ffca
-	github.com/TicketsBot/logarchiver v0.0.0-20241012220745-5f3ba17a5138
-	github.com/TicketsBot/worker v0.0.0-20241117155137-89dec1fd9a11
+	github.com/jadevelopmentgrp/Ticket-Archiver-Client v0.0.0-20241012221057-16a920bfb454
+	github.com/jadevelopmentgrp/Ticket-Utilities v0.0.0-20241117150316-ff54c97b45c1
+	github.com/jadevelopmentgrp/Ticket-Database v0.0.0-20241116234225-cdf216a9ffca
+	github.com/jadevelopmentgrp/Ticket-Archiver v0.0.0-20241012220745-5f3ba17a5138
+	github.com/jadevelopmentgrp/Ticket-Worker v0.0.0-20241117155137-89dec1fd9a11
 	github.com/apex/log v1.1.2
 	github.com/caarlos0/env/v11 v11.2.2
-	github.com/getsentry/sentry-go v0.24.0
 	github.com/gin-gonic/contrib v0.0.0-20191209060500-d6e26eeaa607
 	github.com/gin-gonic/gin v1.9.1
 	github.com/go-playground/validator/v10 v10.14.0
@@ -40,8 +39,8 @@ require (
 require (
 	github.com/ClickHouse/ch-go v0.52.1 // indirect
 	github.com/ClickHouse/clickhouse-go/v2 v2.10.0 // indirect
-	github.com/TicketsBot/analytics-client v0.0.0-20240724103359-30f5dac821e6 // indirect
-	github.com/TicketsBot/ttlcache v1.6.1-0.20200405150101-acc18e37b261 // indirect
+	github.com/jadevelopmentgrp/Ticket-Analytics v0.0.0-20240724103359-30f5dac821e6 // indirect
+	github.com/jadevelopmentgrp/Ticket-TTLCache v1.6.1-0.20200405150101-acc18e37b261 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bits-and-blooms/bitset v1.2.0 // indirect

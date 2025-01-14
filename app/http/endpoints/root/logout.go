@@ -1,8 +1,8 @@
 package root
 
 import (
-	"github.com/TicketsBot/GoPanel/app/http/session"
-	"github.com/TicketsBot/GoPanel/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app/http/session"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/gin-gonic/gin"
 )
 

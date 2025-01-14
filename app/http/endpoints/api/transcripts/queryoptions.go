@@ -3,8 +3,8 @@ package api
 import (
 	"context"
 	"errors"
-	"github.com/TicketsBot/GoPanel/botcontext"
-	"github.com/TicketsBot/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	"github.com/jadevelopmentgrp/Ticket-Database"
 	"github.com/rxdn/gdl/utils"
 )
 

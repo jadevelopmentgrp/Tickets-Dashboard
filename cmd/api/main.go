@@ -2,22 +2,21 @@ package main
 
 import (
 	"fmt"
-	app "github.com/TicketsBot/GoPanel/app/http"
-	"github.com/TicketsBot/GoPanel/app/http/endpoints/api/ticket/livechat"
-	"github.com/TicketsBot/GoPanel/config"
-	"github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/redis"
-	"github.com/TicketsBot/GoPanel/rpc"
-	"github.com/TicketsBot/GoPanel/rpc/cache"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/archiverclient"
-	"github.com/TicketsBot/common/chatrelay"
-	"github.com/TicketsBot/common/model"
-	"github.com/TicketsBot/common/observability"
-	"github.com/TicketsBot/common/premium"
-	"github.com/TicketsBot/common/secureproxy"
-	"github.com/TicketsBot/worker/i18n"
-	"github.com/getsentry/sentry-go"
+	app "github.com/jadevelopmentgrp/Ticket-Dashboard/app/http"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app/http/endpoints/api/ticket/livechat"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc/cache"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Archiver-Client"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/chatrelay"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/model"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/observability"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/secureproxy"
+	"github.com/jadevelopmentgrp/Ticket-Worker/i18n"
 	"github.com/rxdn/gdl/rest/request"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -31,20 +30,6 @@ func main() {
 	cfg, err := config.LoadConfig()
 	utils.Must(err)
 	config.Conf = cfg
-
-	if config.Conf.SentryDsn != nil {
-		sentryOpts := sentry.ClientOptions{
-			Dsn:              *config.Conf.SentryDsn,
-			Debug:            config.Conf.Debug,
-			AttachStacktrace: true,
-			EnableTracing:    true,
-			TracesSampleRate: 0.1,
-		}
-
-		if err := sentry.Init(sentryOpts); err != nil {
-			fmt.Printf("Failed to initialise sentry: %s", err.Error())
-		}
-	}
 
 	var logger *zap.Logger
 	if config.Conf.JsonLogs {

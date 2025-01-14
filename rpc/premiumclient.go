@@ -1,5 +1,5 @@
 package rpc
 
-import "github.com/TicketsBot/common/premium"
+import "github.com/jadevelopmentgrp/Ticket-Utilities/premium"
 
 var PremiumClient premium.IPremiumLookupClient

@@ -2,8 +2,8 @@ package middleware
 
 import (
 	"fmt"
-	"github.com/TicketsBot/GoPanel/config"
-	"github.com/TicketsBot/GoPanel/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt"
 	"strconv"

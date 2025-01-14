@@ -2,12 +2,12 @@ package api
 
 import (
 	"errors"
-	"github.com/TicketsBot/GoPanel/app"
-	"github.com/TicketsBot/GoPanel/botcontext"
-	"github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/rpc"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/common/premium"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
 	"github.com/gin-gonic/gin"
 	"github.com/rxdn/gdl/rest"
 	"github.com/rxdn/gdl/rest/request"
@@ -75,14 +75,7 @@ func DeletePanel(c *gin.Context) {
 			return
 		}
 	}
-
-	// Get premium tier
-	premiumTier, err := rpc.PremiumClient.GetTierByGuildId(c, guildId, true, botContext.Token, botContext.RateLimiter)
-	if err != nil {
-		_ = c.AbortWithError(http.StatusInternalServerError, app.NewServerError(err))
-		return
-	}
-
+	
 	// Update all multi panels messages to remove the button
 	for i, multiPanel := range multiPanels {
 		// Only update 5 multi-panels maximum: Prevent DoS
@@ -96,7 +89,7 @@ func DeletePanel(c *gin.Context) {
 			return
 		}
 
-		messageData := multiPanelIntoMessageData(multiPanel, premiumTier > premium.None)
+		messageData := multiPanelIntoMessageData(multiPanel, true)
 		messageId, err := messageData.send(botContext, panels)
 		if err != nil {
 			var unwrapped request.RestError

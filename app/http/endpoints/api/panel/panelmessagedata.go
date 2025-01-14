@@ -1,9 +1,9 @@
 package api
 
 import (
-	"github.com/TicketsBot/GoPanel/app"
-	"github.com/TicketsBot/GoPanel/botcontext"
-	"github.com/TicketsBot/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	"github.com/jadevelopmentgrp/Ticket-Database"
 	"github.com/rxdn/gdl/objects"
 	"github.com/rxdn/gdl/objects/channel/embed"
 	"github.com/rxdn/gdl/objects/guild/emoji"
@@ -24,7 +24,7 @@ type panelMessageData struct {
 	IsPremium                bool
 }
 
-func panelIntoMessageData(panel database.Panel, isPremium bool) panelMessageData {
+func panelIntoMessageData(panel database.Panel) panelMessageData {
 	var emote *emoji.Emoji
 	if panel.EmojiName != nil { // No emoji = nil
 		if panel.EmojiId == nil { // Unicode emoji
@@ -51,7 +51,7 @@ func panelIntoMessageData(panel database.Panel, isPremium bool) panelMessageData
 		ButtonStyle:    component.ButtonStyle(panel.ButtonStyle),
 		ButtonLabel:    panel.ButtonLabel,
 		ButtonDisabled: panel.Disabled,
-		IsPremium:      isPremium,
+		IsPremium:      true,
 	}
 }
 
@@ -69,9 +69,7 @@ func (p *panelMessageData) send(c *botcontext.BotContext) (uint64, error) {
 		e.SetThumbnail(*p.ThumbnailUrl)
 	}
 
-	if !p.IsPremium {
-		e.SetFooter("Powered by ticketsbot.net", "https://ticketsbot.net/assets/img/logo.png")
-	}
+	e.SetFooter("Tickets by jaDevelopment", "https://avatars.githubusercontent.com/u/142818403")
 
 	data := rest.CreateMessageData{
 		Embeds: []*embed.Embed{e},

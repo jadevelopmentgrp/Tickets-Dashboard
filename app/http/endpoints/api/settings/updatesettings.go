@@ -4,15 +4,15 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/TicketsBot/GoPanel/botcontext"
-	dbclient "github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/rpc"
-	"github.com/TicketsBot/GoPanel/rpc/cache"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/common/premium"
-	"github.com/TicketsBot/database"
-	"github.com/TicketsBot/worker/bot/customisation"
-	"github.com/TicketsBot/worker/i18n"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc/cache"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
+	"github.com/jadevelopmentgrp/Ticket-Database"
+	"github.com/jadevelopmentgrp/Ticket-Worker/bot/customisation"
+	"github.com/jadevelopmentgrp/Ticket-Worker/i18n"
 	"github.com/gin-gonic/gin"
 	"github.com/rxdn/gdl/objects/channel"
 	"golang.org/x/sync/errgroup"
@@ -67,10 +67,8 @@ func UpdateSettingsHandler(ctx *gin.Context) {
 	addToWaitGroup(group, guildId, settings.updateTicketPermissions)
 	addToWaitGroup(group, guildId, settings.updateLanguage)
 	addToWaitGroup(group, guildId, settings.updateAutoClose)
-
-	if premiumTier > premium.None {
-		addToWaitGroup(group, guildId, settings.updateColours)
-	}
+	addToWaitGroup(group, guildId, settings.updateColours)
+	
 
 	// TODO: Errors
 	var errStr *string = nil
@@ -147,11 +145,8 @@ func (s *Settings) Validate(ctx context.Context, guildId uint64, premiumTier pre
 		}
 	}
 
-	// Validate autoclose
-	if premiumTier < premium.Premium {
-		s.AutoCloseSettings.SinceOpenWithNoResponse = 0
-		s.AutoCloseSettings.SinceLastMessage = 0
-	}
+	s.AutoCloseSettings.SinceOpenWithNoResponse = 0
+	s.AutoCloseSettings.SinceLastMessage = 0
 
 	if !s.AutoCloseSettings.Enabled {
 		s.AutoCloseSettings.SinceOpenWithNoResponse = 0

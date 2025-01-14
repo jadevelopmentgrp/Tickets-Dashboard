@@ -2,8 +2,8 @@ package database
 
 import (
 	"context"
-	"github.com/TicketsBot/GoPanel/config"
-	"github.com/TicketsBot/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
+	"github.com/jadevelopmentgrp/Ticket-Database"
 	"github.com/jackc/pgconn"
 	"github.com/jackc/pgconn/stmtcache"
 	"github.com/jackc/pgx/v4"
@@ -20,7 +20,6 @@ func ConnectToDatabase() {
 		panic(err)
 	}
 
-	// TODO: Sentry
 	config.ConnConfig.LogLevel = pgx.LogLevelWarn
 	config.ConnConfig.Logger = logrusadapter.NewLogger(logrus.New())
 

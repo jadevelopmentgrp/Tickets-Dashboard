@@ -3,13 +3,13 @@ package api
 import (
 	"context"
 	"errors"
-	"github.com/TicketsBot/GoPanel/app"
-	"github.com/TicketsBot/GoPanel/botcontext"
-	dbclient "github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/rpc"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/common/premium"
-	"github.com/TicketsBot/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
+	"github.com/jadevelopmentgrp/Ticket-Database"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 	"github.com/rxdn/gdl/rest"
@@ -109,15 +109,8 @@ func MultiPanelUpdate(c *gin.Context) {
 	}
 	cancel()
 
-	// get premium status
-	premiumTier, err := rpc.PremiumClient.GetTierByGuildId(c, guildId, true, botContext.Token, botContext.RateLimiter)
-	if err != nil {
-		_ = c.AbortWithError(http.StatusInternalServerError, app.NewServerError(err))
-		return
-	}
-
 	// send new message
-	messageData := data.IntoMessageData(premiumTier > premium.None)
+	messageData := data.IntoMessageData(true)
 	messageId, err := messageData.send(botContext, panels)
 	if err != nil {
 		var unwrapped request.RestError

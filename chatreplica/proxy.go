@@ -4,8 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/TicketsBot/GoPanel/config"
-	"github.com/getsentry/sentry-go"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -30,14 +29,6 @@ func Render(payload Payload) ([]byte, error) {
 	}
 
 	if res.StatusCode != 200 {
-		sentry.CaptureEvent(&sentry.Event{
-			Extra: map[string]interface{}{
-				"request_body": string(encoded),
-			},
-			Level:   sentry.LevelError,
-			Message: fmt.Sprintf("Render service returned status code %d", res.StatusCode),
-		})
-
 		return nil, fmt.Errorf("render service returned status code %d", res.StatusCode)
 	}
 

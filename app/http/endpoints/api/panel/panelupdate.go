@@ -3,14 +3,14 @@ package api
 import (
 	"context"
 	"errors"
-	"github.com/TicketsBot/GoPanel/app"
-	"github.com/TicketsBot/GoPanel/app/http/validation"
-	"github.com/TicketsBot/GoPanel/botcontext"
-	dbclient "github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/rpc"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/common/premium"
-	"github.com/TicketsBot/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app/http/validation"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
+	"github.com/jadevelopmentgrp/Ticket-Database"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 	"github.com/jackc/pgx/v4"
@@ -55,20 +55,9 @@ func UpdatePanel(c *gin.Context) {
 		return
 	}
 
-	if existing.ForceDisabled {
-		c.JSON(400, utils.ErrorStr("This panel is disabled and cannot be modified: please reactivate premium to re-enable it"))
-		return
-	}
-
 	// Apply defaults
 	ApplyPanelDefaults(&data)
-
-	premiumTier, err := rpc.PremiumClient.GetTierByGuildId(c, guildId, true, botContext.Token, botContext.RateLimiter)
-	if err != nil {
-		_ = c.AbortWithError(http.StatusInternalServerError, app.NewServerError(err))
-		return
-	}
-
+	
 	// TODO: Use proper context
 	channels, err := botContext.GetGuildChannels(context.Background(), guildId)
 	if err != nil {
@@ -87,7 +76,7 @@ func UpdatePanel(c *gin.Context) {
 	validationContext := PanelValidationContext{
 		Data:       data,
 		GuildId:    guildId,
-		IsPremium:  premiumTier > premium.None,
+		IsPremium:  true,
 		BotContext: botContext,
 		Channels:   channels,
 		Roles:      roles,
@@ -150,7 +139,7 @@ func UpdatePanel(c *gin.Context) {
 		// TODO: Use proper context
 		_ = rest.DeleteMessage(c, botContext.Token, botContext.RateLimiter, existing.ChannelId, existing.MessageId)
 
-		messageData := data.IntoPanelMessageData(existing.CustomId, premiumTier > premium.None)
+		messageData := data.IntoPanelMessageData(existing.CustomId, true)
 		newMessageId, err = messageData.send(botContext)
 		if err != nil {
 			var unwrapped request.RestError
@@ -310,7 +299,7 @@ func UpdatePanel(c *gin.Context) {
 			return
 		}
 
-		messageData := multiPanelIntoMessageData(multiPanel, premiumTier > premium.None)
+		messageData := multiPanelIntoMessageData(multiPanel, true)
 
 		messageId, err := messageData.send(botContext, panels)
 		if err != nil {

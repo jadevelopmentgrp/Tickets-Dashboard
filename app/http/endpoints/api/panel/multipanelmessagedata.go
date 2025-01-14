@@ -2,9 +2,9 @@ package api
 
 import (
 	"context"
-	"github.com/TicketsBot/GoPanel/botcontext"
-	"github.com/TicketsBot/GoPanel/utils/types"
-	"github.com/TicketsBot/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
+	"github.com/jadevelopmentgrp/Ticket-Database"
 	"github.com/rxdn/gdl/objects/channel/embed"
 	"github.com/rxdn/gdl/objects/interaction/component"
 	"github.com/rxdn/gdl/rest"
@@ -13,8 +13,6 @@ import (
 )
 
 type multiPanelMessageData struct {
-	IsPremium bool
-
 	ChannelId uint64
 
 	SelectMenu            bool
@@ -23,10 +21,8 @@ type multiPanelMessageData struct {
 	Embed *embed.Embed
 }
 
-func multiPanelIntoMessageData(panel database.MultiPanel, isPremium bool) multiPanelMessageData {
+func multiPanelIntoMessageData(panel database.MultiPanel) multiPanelMessageData {
 	return multiPanelMessageData{
-		IsPremium: isPremium,
-
 		ChannelId: panel.ChannelId,
 
 		SelectMenu:            panel.SelectMenu,
@@ -36,10 +32,7 @@ func multiPanelIntoMessageData(panel database.MultiPanel, isPremium bool) multiP
 }
 
 func (d *multiPanelMessageData) send(ctx *botcontext.BotContext, panels []database.Panel) (uint64, error) {
-	if !d.IsPremium {
-		// TODO: Don't harcode
-		d.Embed.SetFooter("Powered by ticketsbot.net", "https://ticketsbot.net/assets/img/logo.png")
-	}
+	d.Embed.SetFooter("Tickets by jaDevelopment", "https://avatars.githubusercontent.com/u/142818403")
 
 	var components []component.Component
 	if d.SelectMenu {

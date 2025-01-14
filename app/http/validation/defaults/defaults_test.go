@@ -1,7 +1,7 @@
 package defaults
 
 import (
-	"github.com/TicketsBot/GoPanel/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

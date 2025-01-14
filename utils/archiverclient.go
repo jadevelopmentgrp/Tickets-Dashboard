@@ -1,5 +1,5 @@
 package utils
 
-import "github.com/TicketsBot/archiverclient"
+import "github.com/jadevelopmentgrp/Ticket-Archiver-Client"
 
 var ArchiverClient *archiverclient.ArchiverClient

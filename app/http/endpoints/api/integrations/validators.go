@@ -1,7 +1,7 @@
 package api
 
 import (
-	"github.com/TicketsBot/GoPanel/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/go-playground/validator/v10"
 	"net/url"
 	"regexp"

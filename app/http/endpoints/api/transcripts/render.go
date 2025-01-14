@@ -2,10 +2,10 @@ package api
 
 import (
 	"errors"
-	"github.com/TicketsBot/GoPanel/chatreplica"
-	dbclient "github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/archiverclient"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/chatreplica"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Archiver-Client"
 	"github.com/gin-gonic/gin"
 	"strconv"
 )

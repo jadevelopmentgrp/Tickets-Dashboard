@@ -3,9 +3,9 @@ package api
 import (
 	"context"
 	"errors"
-	dbclient "github.com/TicketsBot/GoPanel/database"
-	"github.com/TicketsBot/GoPanel/utils"
-	"github.com/TicketsBot/archiverclient"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Archiver-Client"
 	"github.com/gin-gonic/gin"
 	"strconv"
 )
