@@ -4,17 +4,16 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
-	"github.com/gin-gonic/gin"
 	"github.com/rxdn/gdl/objects/channel/embed"
 	"github.com/rxdn/gdl/rest"
 	"github.com/rxdn/gdl/rest/request"
-	"strconv"
 )
 
 type sendTagBody struct {
@@ -49,21 +48,6 @@ func SendTag(ctx *gin.Context) {
 		ctx.JSON(400, gin.H{
 			"success": false,
 			"error":   "Tag is missing",
-		})
-		return
-	}
-
-	// Verify guild is premium
-	premiumTier, err := rpc.PremiumClient.GetTierByGuildId(ctx, guildId, true, botContext.Token, botContext.RateLimiter)
-	if err != nil {
-		ctx.JSON(500, utils.ErrorJson(err))
-		return
-	}
-
-	if premiumTier == premium.None {
-		ctx.JSON(402, gin.H{
-			"success": false,
-			"error":   "Guild is not premium",
 		})
 		return
 	}

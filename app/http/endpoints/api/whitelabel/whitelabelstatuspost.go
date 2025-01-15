@@ -1,14 +1,15 @@
 package api
 
 import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/statusupdates"
-	"github.com/gin-gonic/gin"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/statusupdates"
 	"github.com/rxdn/gdl/objects/user"
-	"net/http"
 )
 
 type statusUpdateBody struct {

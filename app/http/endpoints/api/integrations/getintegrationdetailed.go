@@ -1,11 +1,12 @@
 package api
 
 import (
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Database"
-	"github.com/gin-gonic/gin"
-	"strconv"
+	database "github.com/jadevelopmentgrp/Tickets-Database"
 )
 
 type detailedResponse struct {

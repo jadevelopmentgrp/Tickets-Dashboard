@@ -3,19 +3,17 @@ package api
 import (
 	"errors"
 	"fmt"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
-	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
-	"github.com/jadevelopmentgrp/Ticket-Database"
-	"github.com/gin-gonic/gin"
-	"github.com/go-playground/validator/v10"
-	"github.com/rxdn/gdl/objects/interaction"
-	"github.com/rxdn/gdl/rest"
 	"regexp"
 	"strings"
+
+	"github.com/gin-gonic/gin"
+	"github.com/go-playground/validator/v10"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
+	"github.com/rxdn/gdl/objects/interaction"
+	"github.com/rxdn/gdl/rest"
 )
 
 type tag struct {
@@ -85,19 +83,6 @@ func CreateTag(ctx *gin.Context) {
 	if err != nil {
 		ctx.JSON(500, utils.ErrorJson(err))
 		return
-	}
-
-	if data.UseGuildCommand {
-		premiumTier, err := rpc.PremiumClient.GetTierByGuildId(ctx, guildId, true, botContext.Token, botContext.RateLimiter)
-		if err != nil {
-			ctx.JSON(500, utils.ErrorJson(err))
-			return
-		}
-
-		if premiumTier < premium.Premium {
-			ctx.JSON(400, utils.ErrorStr("Premium is required to use custom commands"))
-			return
-		}
 	}
 
 	var embed *database.CustomEmbedWithFields

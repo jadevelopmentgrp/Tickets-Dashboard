@@ -1,12 +1,13 @@
 package api
 
 import (
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
-	"github.com/gin-gonic/gin"
-	"strconv"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/premium"
 )
 
 func PremiumHandler(ctx *gin.Context) {

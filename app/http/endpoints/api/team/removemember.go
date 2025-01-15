@@ -4,14 +4,15 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Database"
-	"github.com/gin-gonic/gin"
+	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"github.com/rxdn/gdl/rest"
 	"github.com/rxdn/gdl/rest/request"
-	"strconv"
 )
 
 func RemoveMember(ctx *gin.Context) {

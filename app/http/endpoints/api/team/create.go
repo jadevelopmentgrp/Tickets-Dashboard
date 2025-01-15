@@ -1,10 +1,10 @@
 package api
 
 import (
+	"github.com/gin-gonic/gin"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Database"
-	"github.com/gin-gonic/gin"
+	database "github.com/jadevelopmentgrp/Tickets-Database"
 )
 
 func CreateTeam(ctx *gin.Context) {

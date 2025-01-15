@@ -2,14 +2,15 @@ package api
 
 import (
 	"context"
+	"net/http"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
-	"github.com/jadevelopmentgrp/Ticket-Database"
-	"github.com/gin-gonic/gin"
+	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"golang.org/x/sync/errgroup"
-	"net/http"
-	"strconv"
 )
 
 func ListPanels(c *gin.Context) {

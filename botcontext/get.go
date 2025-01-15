@@ -3,10 +3,11 @@ package botcontext
 import (
 	"context"
 	"fmt"
+
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/restcache"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/restcache"
 	"github.com/rxdn/gdl/rest/ratelimit"
 )
 

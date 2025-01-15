@@ -3,13 +3,13 @@ package botcontext
 import (
 	"context"
 	"errors"
+
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
 	cacheclient "github.com/jadevelopmentgrp/Ticket-Dashboard/rpc/cache"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/permission"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/restcache"
-	"github.com/jadevelopmentgrp/Ticket-Database"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/permission"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/restcache"
 	cache "github.com/rxdn/gdl/cache"
 	"github.com/rxdn/gdl/objects/channel"
 	"github.com/rxdn/gdl/objects/guild"

@@ -3,15 +3,16 @@ package api
 import (
 	"context"
 	"errors"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc/cache"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Database"
-	"github.com/gin-gonic/gin"
+	database "github.com/jadevelopmentgrp/Tickets-Database"
 	cache2 "github.com/rxdn/gdl/cache"
 	gdlutils "github.com/rxdn/gdl/utils"
 	"golang.org/x/sync/errgroup"
-	"strconv"
 )
 
 // ListSelfTranscripts TODO: Give user option to rate ticket

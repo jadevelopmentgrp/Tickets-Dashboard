@@ -2,10 +2,11 @@ package livechat
 
 import (
 	"encoding/json"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/chatrelay"
+	"strconv"
+
+	"github.com/jadevelopmentgrp/Tickets-Utilities/chatrelay"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
-	"strconv"
 )
 
 var (

@@ -1,13 +1,14 @@
 package api
 
 import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/jackc/pgx/v4"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
-	"github.com/gin-gonic/gin"
-	"github.com/jackc/pgx/v4"
-	"net/http"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/premium"
 )
 
 func GetEntitlements(ctx *gin.Context) {

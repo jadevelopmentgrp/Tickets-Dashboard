@@ -2,13 +2,14 @@ package middleware
 
 import (
 	"fmt"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/gin-gonic/gin"
-	"github.com/go-redis/redis_rate/v9"
 	"hash/fnv"
 	"strconv"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	"github.com/go-redis/redis_rate/v9"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 )
 
 type RateLimitType uint8

@@ -3,8 +3,9 @@ package middleware
 import (
 	"bytes"
 	"errors"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
+
 	"github.com/gin-gonic/gin"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
 )
 
 type ErrorResponse struct {

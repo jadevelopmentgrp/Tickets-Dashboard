@@ -2,13 +2,14 @@ package database
 
 import (
 	"context"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
-	"github.com/jadevelopmentgrp/Ticket-Database"
+
 	"github.com/jackc/pgconn"
 	"github.com/jackc/pgconn/stmtcache"
 	"github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/log/logrusadapter"
 	"github.com/jackc/pgx/v4/pgxpool"
+	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
+	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"github.com/sirupsen/logrus"
 )
 

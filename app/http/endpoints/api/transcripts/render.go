@@ -2,12 +2,12 @@ package api
 
 import (
 	"errors"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/chatreplica"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Archiver-Client"
-	"github.com/gin-gonic/gin"
-	"strconv"
 )
 
 func GetTranscriptRenderHandler(ctx *gin.Context) {

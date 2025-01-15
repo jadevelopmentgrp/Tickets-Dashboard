@@ -3,11 +3,11 @@ package api
 import (
 	"context"
 	"errors"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Archiver-Client"
-	"github.com/gin-gonic/gin"
-	"strconv"
 )
 
 func GetTranscriptHandler(ctx *gin.Context) {

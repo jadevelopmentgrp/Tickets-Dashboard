@@ -2,13 +2,13 @@ package utils
 
 import (
 	"context"
+	"net/http"
+
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/internal/api"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/permission"
-	"github.com/jadevelopmentgrp/Ticket-Database"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/permission"
 	"github.com/rxdn/gdl/objects/member"
-	"net/http"
 )
 
 func GetPermissionLevel(ctx context.Context, guildId, userId uint64) (permission.PermissionLevel, error) {

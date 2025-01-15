@@ -2,12 +2,13 @@ package api
 
 import (
 	"context"
+	"strings"
+
+	"github.com/gin-gonic/gin"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Database"
-	"github.com/gin-gonic/gin"
+	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"golang.org/x/sync/errgroup"
-	"strings"
 )
 
 type integrationWithCount struct {

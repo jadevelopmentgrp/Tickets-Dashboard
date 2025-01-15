@@ -3,12 +3,13 @@ package middleware
 import (
 	"context"
 	"errors"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc/cache"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/permission"
-	"github.com/gin-gonic/gin"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/permission"
 	cache2 "github.com/rxdn/gdl/cache"
-	"strconv"
 )
 
 // requires AuthenticateCookie middleware to be run before

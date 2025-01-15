@@ -1,12 +1,13 @@
 package api
 
 import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/whitelabeldelete"
-	"github.com/gin-gonic/gin"
-	"net/http"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/whitelabeldelete"
 )
 
 func WhitelabelDelete(c *gin.Context) {

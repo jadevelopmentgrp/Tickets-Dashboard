@@ -5,16 +5,14 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	"net/http"
+	"strconv"
+
+	"github.com/golang-jwt/jwt"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/internal/api"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
-	"github.com/golang-jwt/jwt"
-	"net/http"
-	"strconv"
 )
 
 func (c *Client) HandleEvent(event Event) error {
@@ -85,22 +83,6 @@ func (c *Client) handleAuthEvent(data AuthData) error {
 
 	if !hasPermission {
 		return api.NewErrorWithMessage(http.StatusForbidden, err, "You do not have permission to view this ticket")
-	}
-
-	// Check premium
-	botContext, err := botcontext.ContextForGuild(c.GuildId)
-	if err != nil {
-		return api.NewErrorWithMessage(http.StatusInternalServerError, err, "Error retrieving bot context")
-	}
-
-	// Verify the guild is premium
-	premiumTier, err := rpc.PremiumClient.GetTierByGuildId(context.Background(), c.GuildId, true, botContext.Token, botContext.RateLimiter)
-	if err != nil {
-		return api.NewErrorWithMessage(http.StatusInternalServerError, err, "Error retrieving premium tier")
-	}
-
-	if premiumTier == premium.None {
-		return api.NewErrorWithMessage(http.StatusPaymentRequired, err, "Live-chat requires premium to use")
 	}
 
 	c.Authenticated = true

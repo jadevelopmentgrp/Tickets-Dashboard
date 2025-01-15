@@ -2,8 +2,9 @@ package middleware
 
 import (
 	"bytes"
-	"github.com/gin-gonic/gin"
 	"io/ioutil"
+
+	"github.com/gin-gonic/gin"
 )
 
 func MultiReadBody(ctx *gin.Context) {

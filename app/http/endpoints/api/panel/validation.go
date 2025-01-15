@@ -4,6 +4,10 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"regexp"
+	"strings"
+	"time"
+
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/app/http/validation"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/app/http/validation/defaults"
@@ -11,13 +15,10 @@ import (
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
-	"github.com/jadevelopmentgrp/Ticket-Database"
+	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"github.com/rxdn/gdl/objects/channel"
 	"github.com/rxdn/gdl/objects/guild"
 	"github.com/rxdn/gdl/objects/interaction/component"
-	"regexp"
-	"strings"
-	"time"
 )
 
 func ApplyPanelDefaults(data *panelBody) {

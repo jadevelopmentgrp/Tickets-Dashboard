@@ -4,17 +4,17 @@ import (
 	"cmp"
 	"context"
 	"fmt"
+	"slices"
+	"sync"
+
+	"github.com/jackc/pgtype"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc/cache"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/collections"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/permission"
-	"github.com/jadevelopmentgrp/Ticket-Database"
-	"github.com/jackc/pgtype"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/collections"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/permission"
 	"github.com/rxdn/gdl/objects/guild"
 	"github.com/rxdn/gdl/rest"
 	errgroup "golang.org/x/sync/errgroup"
-	"slices"
-	"sync"
 )
 
 type GuildDto struct {

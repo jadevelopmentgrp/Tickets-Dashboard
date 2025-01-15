@@ -4,19 +4,19 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"time"
+
+	"github.com/gin-gonic/gin"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc/cache"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
-	"github.com/jadevelopmentgrp/Ticket-Database"
 	"github.com/jadevelopmentgrp/Ticket-Worker/bot/customisation"
 	"github.com/jadevelopmentgrp/Ticket-Worker/i18n"
-	"github.com/gin-gonic/gin"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/premium"
 	"github.com/rxdn/gdl/objects/channel"
 	"golang.org/x/sync/errgroup"
-	"time"
 )
 
 func UpdateSettingsHandler(ctx *gin.Context) {

@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/jadevelopmentgrp/Ticket-Utilities/collections"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/collections"
 	"github.com/rxdn/gdl/objects/channel/message"
 	"github.com/rxdn/gdl/objects/guild"
 )

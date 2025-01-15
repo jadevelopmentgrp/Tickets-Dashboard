@@ -2,14 +2,15 @@ package api
 
 import (
 	"context"
+	"math"
+
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
-	"github.com/jadevelopmentgrp/Ticket-Database"
+	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"github.com/rxdn/gdl/objects/channel/embed"
 	"github.com/rxdn/gdl/objects/interaction/component"
 	"github.com/rxdn/gdl/rest"
 	"github.com/rxdn/gdl/utils"
-	"math"
 )
 
 type multiPanelMessageData struct {

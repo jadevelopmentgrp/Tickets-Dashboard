@@ -2,6 +2,9 @@ package main
 
 import (
 	"fmt"
+	"net/http"
+	"net/http/pprof"
+
 	app "github.com/jadevelopmentgrp/Ticket-Dashboard/app/http"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/app/http/endpoints/api/ticket/livechat"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
@@ -10,18 +13,15 @@ import (
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc/cache"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Archiver-Client"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/chatrelay"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/model"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/observability"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/premium"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/secureproxy"
 	"github.com/jadevelopmentgrp/Ticket-Worker/i18n"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/chatrelay"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/model"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/observability"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/premium"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/secureproxy"
 	"github.com/rxdn/gdl/rest/request"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"net/http"
-	"net/http/pprof"
 )
 
 func main() {

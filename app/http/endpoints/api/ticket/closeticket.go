@@ -2,14 +2,15 @@ package api
 
 import (
 	"context"
+	"net/http"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/closerelay"
-	"github.com/gin-gonic/gin"
-	"net/http"
-	"strconv"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/closerelay"
 )
 
 type closeBody struct {

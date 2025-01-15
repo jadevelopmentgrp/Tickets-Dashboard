@@ -5,21 +5,21 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
+	"net/http"
+	"strconv"
+	"strings"
+
+	"github.com/gin-gonic/gin"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/tokenchange"
-	"github.com/jadevelopmentgrp/Ticket-Utilities/whitelabeldelete"
-	"github.com/jadevelopmentgrp/Ticket-Database"
 	"github.com/jadevelopmentgrp/Ticket-Worker/bot/command/manager"
-	"github.com/gin-gonic/gin"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/tokenchange"
+	"github.com/jadevelopmentgrp/Tickets-Utilities/whitelabeldelete"
 	"github.com/rxdn/gdl/objects/application"
 	"github.com/rxdn/gdl/rest"
 	"github.com/rxdn/gdl/rest/request"
-	"net/http"
-	"strconv"
-	"strings"
 )
 
 func WhitelabelPost() func(*gin.Context) {

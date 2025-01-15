@@ -3,15 +3,16 @@ package api
 import (
 	"context"
 	"fmt"
+	"sort"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
 	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	syncutils "github.com/jadevelopmentgrp/Ticket-Utilities/utils"
-	"github.com/gin-gonic/gin"
+	syncutils "github.com/jadevelopmentgrp/Tickets-Utilities/utils"
 	"github.com/rxdn/gdl/objects/user"
 	"golang.org/x/sync/errgroup"
-	"sort"
-	"strconv"
 )
 
 func GetMembers(ctx *gin.Context) {
