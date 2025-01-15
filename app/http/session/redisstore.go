@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	wrapper "github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
 	"github.com/go-redis/redis/v8"
+	wrapper "github.com/jadevelopmentgrp/Tickets-Dashboard/redis"
 	"time"
 )
 

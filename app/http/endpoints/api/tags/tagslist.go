@@ -1,10 +1,10 @@
 package api
 
 import (
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
 	"github.com/gin-gonic/gin"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils/types"
 )
 
 func TagsListHandler(ctx *gin.Context) {

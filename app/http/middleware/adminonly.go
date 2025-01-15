@@ -2,8 +2,8 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/config"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 )
 
 func AdminOnly(ctx *gin.Context) {

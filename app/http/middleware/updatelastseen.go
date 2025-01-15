@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 )
 
 // UpdateLastSeen We store the last time a user was seen in the dashboard so that we can delete their data if they

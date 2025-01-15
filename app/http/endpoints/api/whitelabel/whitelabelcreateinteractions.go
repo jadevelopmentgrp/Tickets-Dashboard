@@ -4,16 +4,17 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Worker/bot/command/manager"
-	"github.com/gin-gonic/gin"
-	"github.com/rxdn/gdl/rest"
 	"net/http"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	"github.com/jadevelopmentgrp/Ticket-Worker/bot/command/manager"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/app"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/botcontext"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/redis"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
+	"github.com/rxdn/gdl/rest"
 )
 
 // TODO: Refactor

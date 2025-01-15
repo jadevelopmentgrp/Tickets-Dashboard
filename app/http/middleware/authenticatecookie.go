@@ -3,7 +3,7 @@ package middleware
 import (
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 )
 
 func AuthenticateCookie(ctx *gin.Context) {

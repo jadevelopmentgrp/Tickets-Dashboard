@@ -1,7 +1,7 @@
 package types
 
 import (
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"github.com/rxdn/gdl/objects/channel/embed"
 )

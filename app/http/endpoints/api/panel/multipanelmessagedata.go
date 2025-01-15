@@ -4,8 +4,8 @@ import (
 	"context"
 	"math"
 
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/botcontext"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils/types"
 	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"github.com/rxdn/gdl/objects/channel/embed"
 	"github.com/rxdn/gdl/objects/interaction/component"

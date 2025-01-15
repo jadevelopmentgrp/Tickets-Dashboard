@@ -7,9 +7,9 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
-	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/botcontext"
+	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"github.com/rxdn/gdl/rest"
 	"github.com/rxdn/gdl/rest/request"

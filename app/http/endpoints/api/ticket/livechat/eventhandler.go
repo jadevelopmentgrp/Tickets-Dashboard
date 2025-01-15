@@ -9,10 +9,10 @@ import (
 	"strconv"
 
 	"github.com/golang-jwt/jwt"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
-	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/internal/api"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/config"
+	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/internal/api"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 )
 
 func (c *Client) HandleEvent(event Event) error {

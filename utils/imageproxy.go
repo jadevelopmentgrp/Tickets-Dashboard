@@ -1,9 +1,9 @@
 package utils
 
 import (
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
 	"github.com/golang-jwt/jwt"
 	"github.com/google/uuid"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/config"
 	"strconv"
 	"time"
 )

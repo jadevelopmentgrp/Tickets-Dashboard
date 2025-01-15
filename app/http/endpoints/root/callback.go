@@ -4,18 +4,19 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/app/http/session"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/gin-gonic/gin"
-	"github.com/golang-jwt/jwt"
-	"github.com/rxdn/gdl/rest"
-	"github.com/rxdn/gdl/rest/request"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	"github.com/golang-jwt/jwt"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/app"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/app/http/session"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/config"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
+	"github.com/rxdn/gdl/rest"
+	"github.com/rxdn/gdl/rest/request"
 )
 
 func CallbackHandler(c *gin.Context) {

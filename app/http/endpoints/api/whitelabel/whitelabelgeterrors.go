@@ -1,9 +1,9 @@
 package api
 
 import (
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/database"
 	"github.com/gin-gonic/gin"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/app"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/database"
 	"net/http"
 )
 

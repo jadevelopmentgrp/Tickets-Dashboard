@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/botcontext"
 	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"github.com/rxdn/gdl/utils"
 )

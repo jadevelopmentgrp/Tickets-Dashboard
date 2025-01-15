@@ -2,8 +2,8 @@ package cache
 
 import (
 	"context"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
 	"github.com/jackc/pgx/v4/pgxpool"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/config"
 	gdlcache "github.com/rxdn/gdl/cache"
 )
 

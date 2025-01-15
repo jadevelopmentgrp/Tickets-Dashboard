@@ -1,10 +1,10 @@
 package livechat
 
 import (
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/config"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 	"net/http"
 	"strconv"
 )

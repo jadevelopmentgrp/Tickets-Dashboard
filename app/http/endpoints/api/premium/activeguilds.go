@@ -4,9 +4,9 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
+	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils/types"
 	"github.com/jadevelopmentgrp/Tickets-Utilities/permission"
 )
 

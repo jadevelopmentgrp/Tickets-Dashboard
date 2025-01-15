@@ -5,9 +5,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/jackc/pgx/v4"
-	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils/types"
+	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils/types"
 	"github.com/jadevelopmentgrp/Tickets-Utilities/premium"
 )
 

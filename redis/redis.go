@@ -3,8 +3,8 @@ package redis
 import (
 	"context"
 	"fmt"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
 	"github.com/go-redis/redis/v8"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/config"
 	"time"
 )
 

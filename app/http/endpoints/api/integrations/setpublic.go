@@ -2,11 +2,11 @@ package api
 
 import (
 	"fmt"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
-	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/gin-gonic/gin"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/botcontext"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/config"
+	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 	"github.com/rxdn/gdl/objects/channel/embed"
 	"github.com/rxdn/gdl/rest"
 	"strconv"

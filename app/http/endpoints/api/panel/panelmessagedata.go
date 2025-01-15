@@ -1,8 +1,8 @@
 package api
 
 import (
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/app"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/botcontext"
 	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"github.com/rxdn/gdl/objects"
 	"github.com/rxdn/gdl/objects/channel/embed"

@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/config"
 	"net/http"
 	"strings"
 )

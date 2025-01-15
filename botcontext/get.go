@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
-	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/config"
+	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/redis"
 	"github.com/jadevelopmentgrp/Tickets-Utilities/restcache"
 	"github.com/rxdn/gdl/rest/ratelimit"
 )

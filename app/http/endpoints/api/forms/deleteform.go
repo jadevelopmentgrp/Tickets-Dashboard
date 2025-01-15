@@ -1,10 +1,10 @@
 package forms
 
 import (
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
-	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/gin-gonic/gin"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/app"
+	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 	"net/http"
 	"strconv"
 )

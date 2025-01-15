@@ -8,7 +8,7 @@ import (
 	"github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/log/logrusadapter"
 	"github.com/jackc/pgx/v4/pgxpool"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/config"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/config"
 	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"github.com/sirupsen/logrus"
 )

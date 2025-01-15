@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/app"
-	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/app"
+	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
 	database "github.com/jadevelopmentgrp/Tickets-Database"
 )
 

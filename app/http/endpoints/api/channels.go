@@ -1,11 +1,11 @@
 package api
 
 import (
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/redis"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc/cache"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/gin-gonic/gin"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/botcontext"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/redis"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/rpc/cache"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 	"github.com/rxdn/gdl/objects/channel"
 	"github.com/rxdn/gdl/rest"
 	"sort"

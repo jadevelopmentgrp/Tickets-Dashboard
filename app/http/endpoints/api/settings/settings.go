@@ -5,10 +5,10 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/jadevelopmentgrp/Ticket-Worker/bot/customisation"
 	"github.com/jadevelopmentgrp/Ticket-Worker/i18n"
+	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"golang.org/x/sync/errgroup"
 )

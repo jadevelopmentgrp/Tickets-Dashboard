@@ -8,8 +8,9 @@ import (
 	"sync"
 
 	"github.com/jackc/pgtype"
-	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc/cache"
+	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/rpc/cache"
+	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"github.com/jadevelopmentgrp/Tickets-Utilities/collections"
 	"github.com/jadevelopmentgrp/Tickets-Utilities/permission"
 	"github.com/rxdn/gdl/objects/guild"

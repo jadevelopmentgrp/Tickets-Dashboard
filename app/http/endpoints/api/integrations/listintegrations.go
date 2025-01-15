@@ -2,10 +2,10 @@ package api
 
 import (
 	"context"
-	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/rpc/cache"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/utils"
 	"github.com/gin-gonic/gin"
+	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/rpc/cache"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 	"github.com/rxdn/gdl/objects/user"
 	"strconv"
 	"strings"

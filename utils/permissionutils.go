@@ -4,9 +4,10 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/botcontext"
-	dbclient "github.com/jadevelopmentgrp/Ticket-Dashboard/database"
-	"github.com/jadevelopmentgrp/Ticket-Dashboard/internal/api"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/botcontext"
+	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
+	"github.com/jadevelopmentgrp/Tickets-Dashboard/internal/api"
+	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"github.com/jadevelopmentgrp/Tickets-Utilities/permission"
 	"github.com/rxdn/gdl/objects/member"
 )
