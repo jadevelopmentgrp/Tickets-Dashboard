@@ -5,8 +5,7 @@
       <div class="row">
         <Input col4 label="Tag ID" placeholder="docs" bind:value={data.id}
                tooltipText='If the command is "/tag docs", then the ID is "docs"'/>
-        <Checkbox col2 label="Create Custom Command Alias" bind:value={data.use_guild_command}
-                  disabled={!isPremium} premiumBadge={true} />
+        <Checkbox col2 label="Create Custom Command Alias" bind:value={data.use_guild_command} />
       </div>
 
       <div class="row">
@@ -35,18 +34,17 @@
 <svelte:window on:keydown={handleKeydown}/>
 
 <script>
+    import { createEventDispatcher, onMount } from "svelte";
     import ConfirmationModal from "../ConfirmationModal.svelte";
-    import Input from "../form/Input.svelte";
+    import EmbedForm from "../EmbedForm.svelte";
     import Checkbox from "../form/Checkbox.svelte";
+    import Input from "../form/Input.svelte";
     import Textarea from "../form/Textarea.svelte";
     import Toggle from "../form/Toggle.svelte";
-    import EmbedForm from "../EmbedForm.svelte";
-    import {createEventDispatcher, onMount} from "svelte";
 
     const dispatch = createEventDispatcher();
 
     export let data;
-    export let isPremium;
 
     function handleKeydown(e) {
         if (e.key === "Escape") {

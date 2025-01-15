@@ -109,14 +109,12 @@
     </div>
     <div class="input-container">
         <form on:submit|preventDefault={sendMessage}>
-            <input type="text" class="message-input" bind:value={sendContent} disabled={!isPremium}
-                   placeholder="{isPremium ? `Message #ticket-${ticketId}` : 'Premium users can receive messages in real-time and respond to tickets through the dashboard'}">
-            {#if isPremium}
-                <i class="fas fa-paper-plane send-button" on:click={sendMessage}/>
+            <input type="text" class="message-input" bind:value={sendContent}
+                   placeholder="{`Message #ticket-${ticketId}`}">
+            <i class="fas fa-paper-plane send-button" on:click={sendMessage}/>
                 <div class="tag-selector">
                     <Button type="button" noShadow on:click={openTagSelector}>Select Tag</Button>
                 </div>
-            {/if}
         </form>
     </div>
 </section>
@@ -131,7 +129,6 @@
     import {getRelativeTime} from "../js/util";
 
     export let ticketId;
-    export let isPremium = false;
     export let messages = [];
     export let container;
 

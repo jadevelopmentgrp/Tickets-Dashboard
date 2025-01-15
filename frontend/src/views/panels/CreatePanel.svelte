@@ -45,17 +45,17 @@
 </style>
 
 <script>
-    import {loadingScreen} from "../../js/stores";
+    import axios from "axios";
+    import { onMount } from "svelte";
+    import { navigateTo } from "svelte-router-spa";
     import Button from "../../components/Button.svelte";
     import Card from "../../components/Card.svelte";
     import PanelCreationForm from "../../components/manage/PanelCreationForm.svelte";
-    import {setDefaultHeaders} from '../../includes/Auth.svelte'
-    import {notifyError, setBlankStringsToNull, withLoadingScreen} from "../../js/util";
-    import {onMount} from "svelte";
-    import {loadChannels, loadEmojis, loadForms, loadPremium, loadRoles, loadTeams} from "../../js/common";
-    import axios from "axios";
-    import {API_URL} from "../../js/constants";
-    import {Navigate, navigateTo} from "svelte-router-spa";
+    import { setDefaultHeaders } from '../../includes/Auth.svelte';
+    import { loadChannels, loadEmojis, loadForms, loadRoles, loadTeams } from "../../js/common";
+    import { API_URL } from "../../js/constants";
+    import { loadingScreen } from "../../js/stores";
+    import { notifyError, setBlankStringsToNull, withLoadingScreen } from "../../js/util";
 
     setDefaultHeaders();
 
@@ -67,7 +67,7 @@
     let emojis = [];
     let teams = [];
     let forms = [];
-    let isPremium = false;
+    let isPremium = true;
 
     let panelCreateData;
 
@@ -90,8 +90,7 @@
                 loadRoles(guildId).then(r => roles = r).catch(e => notifyError(e)),
                 loadEmojis(guildId).then(r => emojis = r).catch(e => notifyError(e)),
                 loadTeams(guildId).then(r => teams = r).catch(e => notifyError(e)),
-                loadForms(guildId).then(r => forms = r).catch(e => notifyError(e)),
-                loadPremium(guildId, false).then(r => isPremium = r).catch(e => notifyError(e)),
+                loadForms(guildId).then(r => forms = r).catch(e => notifyError(e))
             ])
         });
     });

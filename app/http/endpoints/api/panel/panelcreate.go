@@ -142,7 +142,7 @@ func CreatePanel(c *gin.Context) {
 		return
 	}
 
-	messageData := data.IntoPanelMessageData(customId, true)
+	messageData := data.IntoPanelMessageData(customId)
 	msgId, err := messageData.send(botContext)
 	if err != nil {
 		var unwrapped request.RestError

@@ -15,13 +15,12 @@
       <Card footer={false}>
         <div slot="title" class="row">
           Colour Scheme
-          <Badge>Premium</Badge>
         </div>
         <div slot="body" class="body-wrapper">
           <form class="settings-form" on:submit|preventDefault={updateColours}>
             <div class="row colour-picker-row">
-              <Colour col3={true} label="Success" bind:value={colours["0"]} disabled={!isPremium} />
-              <Colour col3={true} label="Failure" bind:value={colours["1"]} disabled={!isPremium} />
+              <Colour col3={true} label="Success" bind:value={colours["0"]} />
+              <Colour col3={true} label="Failure" bind:value={colours["1"]} />
             </div>
 
             <div class="row centre">
@@ -35,21 +34,19 @@
 </div>
 
 <script>
-  import Card from "../components/Card.svelte";
-  import {notifyError, notifySuccess, withLoadingScreen} from '../js/util'
   import axios from "axios";
-  import {API_URL} from "../js/constants";
-  import {setDefaultHeaders} from '../includes/Auth.svelte'
-  import {Navigate} from "svelte-router-spa";
-  import Colour from "../components/form/Colour.svelte";
+  import { Navigate } from "svelte-router-spa";
   import Button from "../components/Button.svelte";
-  import Badge from "../components/Badge.svelte";
+  import Card from "../components/Card.svelte";
+  import Colour from "../components/form/Colour.svelte";
+  import { setDefaultHeaders } from '../includes/Auth.svelte';
+  import { API_URL } from "../js/constants";
+  import { notifyError, notifySuccess, withLoadingScreen } from '../js/util';
 
   export let currentRoute;
   let guildId = currentRoute.namedParams.id;
 
   let colours = {};
-  let isPremium = false;
 
   async function updateColours() {
     const res = await axios.post(`${API_URL}/api/${guildId}/customisation/colours`, colours);
@@ -71,21 +68,10 @@
     colours = res.data;
   }
 
-  async function loadPremium() {
-    const res = await axios.get(`${API_URL}/api/${guildId}/premium?include_voting=true`);
-    if (res.status !== 200) {
-      notifyError(res.data.error);
-      return;
-    }
-
-    isPremium = res.data.premium;
-  }
-
   withLoadingScreen(async () => {
     setDefaultHeaders(); // TODO: Is this needed?
 
     await Promise.all([
-        loadPremium(),
         loadColours()
     ]);
   });

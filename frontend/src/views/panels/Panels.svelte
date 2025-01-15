@@ -22,7 +22,7 @@
                 <span slot="title">Ticket Panels</span>
                 <div slot="body" class="card-body panels">
                     <div class="controls">
-                        <p>Your panel quota: <b>{panels.length} / {isPremium ? '∞' : '3'}</b></p>
+                        <p>Your panel quota: <b>{panels.length} / {'∞'}</b></p>
                         <Navigate to="/manage/{guildId}/panels/create" styles="link">
                             <Button icon="fas fa-plus">New Panel</Button>
                         </Navigate>
@@ -113,15 +113,15 @@
 </div>
 
 <script>
-    import Card from "../../components/Card.svelte";
-    import {checkForParamAndRewrite, notifyError, notifySuccess, withLoadingScreen} from "../../js/util";
     import axios from "axios";
-    import {API_URL} from "../../js/constants";
-    import {setDefaultHeaders} from '../../includes/Auth.svelte'
+    import { Navigate } from "svelte-router-spa";
     import Button from "../../components/Button.svelte";
+    import Card from "../../components/Card.svelte";
     import ConfirmationModal from "../../components/ConfirmationModal.svelte";
-    import {Navigate} from "svelte-router-spa";
-    import {loadChannels, loadMultiPanels, loadPanels, loadPremium} from "../../js/common";
+    import { setDefaultHeaders } from '../../includes/Auth.svelte';
+    import { loadChannels, loadMultiPanels, loadPanels } from "../../js/common";
+    import { API_URL } from "../../js/constants";
+    import { checkForParamAndRewrite, notifyError, notifySuccess, withLoadingScreen } from "../../js/util";
 
     export let currentRoute;
 
@@ -132,7 +132,6 @@
     let channels = [];
     let panels = [];
     let multiPanels = [];
-    let isPremium = false;
 
     let panelToDelete = null;
     let multiPanelToDelete = null;
@@ -182,7 +181,6 @@
     withLoadingScreen(async () => {
         await Promise.all([
             loadChannels(guildId).then(r => channels = r).catch(e => notifyError(e)),
-            loadPremium(guildId, false).then(r => isPremium = r).catch(e => notifyError(e)),
             loadPanels(guildId).then(r => panels = r).catch(e => notifyError(e)),
             loadMultiPanels(guildId).then(r => multiPanels = r).catch(e => notifyError(e))
         ])

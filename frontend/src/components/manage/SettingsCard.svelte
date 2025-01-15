@@ -122,22 +122,20 @@
 
             <div class="row" style="justify-content: space-between">
               <div class="col-2" style="flex-direction: row">
-                <Duration disabled={!isPremium || !data.auto_close.enabled} bind:days={sinceOpenDays}
+                <Duration disabled={!data.auto_close.enabled} bind:days={sinceOpenDays}
                           bind:hours={sinceOpenHours}
                           bind:minutes={sinceOpenMinutes}>
                   <div slot="header" class="header">
                     <label class="form-label" style="margin-bottom: unset">Since Open With No Response</label>
-                    <PremiumBadge/>
                   </div>
                 </Duration>
               </div>
               <div class="col-2" style="flex-direction: row">
-                <Duration disabled={!isPremium || !data.auto_close.enabled} bind:days={sinceLastDays}
+                <Duration disabled={data.auto_close.enabled} bind:days={sinceLastDays}
                           bind:hours={sinceLastHours}
                           bind:minutes={sinceLastMinutes}>
                   <div slot="header" class="header">
                     <label class="form-label" style="margin-bottom: unset">Since Last Message</label>
-                    <PremiumBadge/>
                   </div>
                 </Duration>
               </div>
@@ -157,12 +155,11 @@
         <Collapsible>
           <div slot="header" class="header">
             <span>Colour Scheme</span>
-            <PremiumBadge/>
           </div>
           <div slot="content" class="col-1">
             <div class="row">
-              <Colour col4 label="Success" bind:value={data.colours["0"]} disabled={!isPremium}/>
-              <Colour col4 label="Failure" bind:value={data.colours["1"]} disabled={!isPremium}/>
+              <Colour col4 label="Success" bind:value={data.colours["0"]}/>
+              <Colour col4 label="Failure" bind:value={data.colours["1"]}/>
             </div>
           </div>
         </Collapsible>
@@ -186,29 +183,26 @@
 </svelte:head>
 
 <script>
-    import ChannelDropdown from "../ChannelDropdown.svelte";
     import Card from "../Card.svelte";
-    import Input from "../form/Input.svelte";
-    import Number from "../form/Number.svelte";
+    import ChannelDropdown from "../ChannelDropdown.svelte";
     import Checkbox from "../form/Checkbox.svelte";
+    import Number from "../form/Number.svelte";
     import Textarea from "../form/Textarea.svelte";
 
-    import {setDefaultHeaders} from '../../includes/Auth.svelte'
     import axios from "axios";
-    import {notify, notifyError, notifySuccess, withLoadingScreen} from "../../js/util";
-    import {API_URL} from "../../js/constants";
-    import CategoryDropdown from "../CategoryDropdown.svelte";
+    import { setDefaultHeaders } from '../../includes/Auth.svelte';
+    import { API_URL } from "../../js/constants";
+    import { toDays, toHours, toMinutes } from "../../js/timeutil";
+    import { notify, notifyError, notifySuccess, withLoadingScreen } from "../../js/util";
     import Button from "../Button.svelte";
-    import NamingScheme from "../NamingScheme.svelte";
-    import Dropdown from "../form/Dropdown.svelte";
-    import SimplePanelDropdown from "../SimplePanelDropdown.svelte";
+    import CategoryDropdown from "../CategoryDropdown.svelte";
     import Collapsible from "../Collapsible.svelte";
-    import Duration from "../form/Duration.svelte";
     import Colour from "../form/Colour.svelte";
-    import PremiumBadge from "../PremiumBadge.svelte";
-    import {toDays, toHours, toMinutes} from "../../js/timeutil";
+    import Dropdown from "../form/Dropdown.svelte";
+    import Duration from "../form/Duration.svelte";
     import Toggle from "../form/Toggle.svelte";
-    import IconBadge from "../IconBadge.svelte";
+    import NamingScheme from "../NamingScheme.svelte";
+    import SimplePanelDropdown from "../SimplePanelDropdown.svelte";
 
     export let guildId;
 
@@ -216,7 +210,6 @@
 
     let channels = [];
     let panels = [];
-    let isPremium = false;
 
     let data;
 
@@ -258,16 +251,6 @@
         }
 
         channels = res.data;
-    }
-
-    async function loadPremium() {
-        const res = await axios.get(`${API_URL}/api/${guildId}/premium`);
-        if (res.status !== 200) {
-            notifyError(res.data.error);
-            return;
-        }
-
-        isPremium = res.data.premium;
     }
 
     async function loadSettings() {
@@ -405,7 +388,6 @@
         await Promise.all([
             loadPanels(),
             loadChannels(),
-            loadPremium(),
             loadSettings()
         ]);
 

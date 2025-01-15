@@ -11,11 +11,9 @@ import (
 	"github.com/jadevelopmentgrp/Ticket-Worker/i18n"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/botcontext"
 	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
-	"github.com/jadevelopmentgrp/Tickets-Dashboard/rpc"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/rpc/cache"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 	database "github.com/jadevelopmentgrp/Tickets-Database"
-	"github.com/jadevelopmentgrp/Tickets-Utilities/premium"
 	"github.com/rxdn/gdl/objects/channel"
 	"golang.org/x/sync/errgroup"
 )
@@ -43,14 +41,7 @@ func UpdateSettingsHandler(ctx *gin.Context) {
 		return
 	}
 
-	// Includes voting
-	premiumTier, err := rpc.PremiumClient.GetTierByGuildId(ctx, guildId, true, botContext.Token, botContext.RateLimiter)
-	if err != nil {
-		ctx.JSON(500, utils.ErrorJson(err))
-		return
-	}
-
-	if err := settings.Validate(ctx, guildId, premiumTier); err != nil {
+	if err := settings.Validate(ctx, guildId); err != nil {
 		ctx.JSON(400, utils.ErrorJson(err))
 		return
 	}
@@ -108,7 +99,7 @@ var (
 	activeColours    = []customisation.Colour{customisation.Green, customisation.Red}
 )
 
-func (s *Settings) Validate(ctx context.Context, guildId uint64, premiumTier premium.PremiumTier) error {
+func (s *Settings) Validate(ctx context.Context, guildId uint64) error {
 	// Sync checks
 	if s.ClaimSettings.SupportCanType && !s.ClaimSettings.SupportCanView {
 		return errors.New("Must be able to view channel to type")

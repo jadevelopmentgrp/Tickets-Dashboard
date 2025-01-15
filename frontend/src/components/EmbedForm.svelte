@@ -36,17 +36,11 @@
         <Collapsible forceAlwaysOpen>
             <span slot="header">Footer</span>
             <div slot="content" class="row">
-                {#if footerPremiumOnly}
-                    <Input col3 label="Footer Text" placeholder="Footer Text" badge="Premium"
+                <Input col3 label="Footer Text" placeholder="Footer Text" badge="Premium"
                            bind:value={data.footer.text}/>
                     <Input col3 label="Footer Icon URL (Optional)" badge="Premium"
                            placeholder="https://example.com/image.png"
                            bind:value={data.footer.icon_url}/>
-                {:else}
-                    <Input col3 label="Footer Text" placeholder="Footer Text" bind:value={data.footer.text}/>
-                    <Input col3 label="Footer Icon URL (Optional)" placeholder="https://example.com/image.png"
-                           bind:value={data.footer.icon_url}/>
-                {/if}
                 <DateTimePicker col3 label="Footer Timestamp (Optional)" bind:value={data.timestamp}/>
             </div>
         </Collapsible>
@@ -99,15 +93,15 @@
 </style>
 
 <script>
-    import Textarea from "./form/Textarea.svelte";
-    import Colour from "./form/Colour.svelte";
-    import Input from "./form/Input.svelte";
-    import Collapsible from "./Collapsible.svelte";
-    import DateTimePicker from "./form/DateTimePicker.svelte";
-    import Checkbox from "./form/Checkbox.svelte";
+    import { onMount } from "svelte";
+    import { colourToInt, intToColour } from "../js/util";
     import Button from "./Button.svelte";
-    import {onMount} from "svelte";
-    import {intToColour, colourToInt} from "../js/util";
+    import Collapsible from "./Collapsible.svelte";
+    import Checkbox from "./form/Checkbox.svelte";
+    import Colour from "./form/Colour.svelte";
+    import DateTimePicker from "./form/DateTimePicker.svelte";
+    import Input from "./form/Input.svelte";
+    import Textarea from "./form/Textarea.svelte";
 
     export let data;
 
@@ -117,8 +111,6 @@
         author: {},
         footer: {},
     };
-
-    export let footerPremiumOnly = true;
 
     function addField() {
         data.fields.push({name: '', value: '', inline: false});

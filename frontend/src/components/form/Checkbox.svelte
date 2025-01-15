@@ -5,22 +5,14 @@
               {label}
           </label>
       </slot>
-      {#if premiumBadge}
-          <div style="margin-bottom: 5px">
-              <PremiumBadge />
-          </div>
-      {/if}
   </div>
   <input id="input" class="form-checkbox" type=checkbox bind:checked={value} on:change {disabled}>
 </div>
 
 <script>
-    import PremiumBadge from "../PremiumBadge.svelte";
-
     export let value;
     export let label;
     export let disabled = false;
-    export let premiumBadge = false;
 
     export let col1 = false;
     export let col2 = false;

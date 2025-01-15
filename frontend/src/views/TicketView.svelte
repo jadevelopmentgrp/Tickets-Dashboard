@@ -24,15 +24,15 @@
 </div>
 
 <script>
-    import Card from "../components/Card.svelte";
-    import {notifyError, notifyRatelimit, withLoadingScreen} from '../js/util'
-    import Button from "../components/Button.svelte";
     import axios from "axios";
-    import {API_URL} from "../js/constants";
-    import {getToken, setDefaultHeaders} from '../includes/Auth.svelte'
-    import Input from "../components/form/Input.svelte";
-    import {navigateTo} from "svelte-router-spa";
+    import { navigateTo } from "svelte-router-spa";
+    import Button from "../components/Button.svelte";
+    import Card from "../components/Card.svelte";
     import DiscordMessages from "../components/DiscordMessages.svelte";
+    import Input from "../components/form/Input.svelte";
+    import { getToken, setDefaultHeaders } from '../includes/Auth.svelte';
+    import { API_URL } from "../js/constants";
+    import { notifyError, notifyRatelimit, withLoadingScreen } from '../js/util';
 
     export let currentRoute;
     let guildId = currentRoute.namedParams.id;
@@ -40,7 +40,7 @@
 
     let closeReason = '';
     let messages = [];
-    let isPremium = false;
+    let isPremium = true;
     let tags = [];
     let container;
 
@@ -125,16 +125,6 @@
         messages = res.data.messages;
     }
 
-    async function loadPremium() {
-        const res = await axios.get(`${API_URL}/api/${guildId}/premium?include_voting=true`);
-        if (res.status !== 200) {
-            notifyError(res.data.error);
-            return;
-        }
-
-        isPremium = res.data.premium;
-    }
-
     async function loadTags() {
         const res = await axios.get(`${API_URL}/api/${guildId}/tags`);
         if (res.status !== 200) {
@@ -148,16 +138,12 @@
     withLoadingScreen(async () => {
         setDefaultHeaders();
         await Promise.all([
-            loadPremium(),
             loadMessages()
         ]);
 
         scrollContainer();
-
-        if (isPremium) {
-            connectWebsocket();
-            await loadTags();
-        }
+        connectWebsocket();
+        await loadTags();
     });
 </script>
 

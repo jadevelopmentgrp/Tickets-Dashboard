@@ -11,11 +11,11 @@
       </div>
       <div class="row" style="justify-content: space-between">
         <div class="col-2" style="flex-direction: row">
-          <Duration label="Since Open With No Response" badge="Premium" disabled={!isPremium}
+          <Duration label="Since Open With No Response" badge="Premium"
                     bind:days={sinceOpenDays} bind:hours={sinceOpenHours} bind:minutes={sinceOpenMinutes}/>
         </div>
         <div class="col-2" style="flex-direction: row">
-          <Duration label="Since Last Message" badge="Premium" disabled={!isPremium}
+          <Duration label="Since Last Message" badge="Premium"
                     bind:days={sinceLastDays} bind:hours={sinceLastHours} bind:minutes={sinceLastMinutes}/>
         </div>
       </div>
@@ -54,19 +54,18 @@
 </style>
 
 <script>
+    import axios from "axios";
+    import { API_URL } from "../../js/constants";
+    import { toDays, toHours, toMinutes } from "../../js/timeutil";
+    import { notifyError, notifySuccess, withLoadingScreen } from "../../js/util";
+    import Button from "../Button.svelte";
     import Card from "../Card.svelte";
     import Checkbox from "../form/Checkbox.svelte";
-    import {notifyError, notifySuccess, withLoadingScreen} from "../../js/util";
-    import axios from "axios";
-    import {API_URL} from "../../js/constants";
     import Duration from "../form/Duration.svelte";
-    import {toDays, toHours, toMinutes} from "../../js/timeutil";
-    import Button from "../Button.svelte";
 
     export let guildId;
 
     let data = {};
-    let isPremium = false;
 
     let sinceOpenDays = 0, sinceOpenHours = 0, sinceOpenMinutes = 0;
     let sinceLastDays = 0, sinceLastHours = 0, sinceLastMinutes = 0;
@@ -82,16 +81,6 @@
         }
 
         notifySuccess('Auto close settings updated successfully');
-    }
-
-    async function loadPremium() {
-        const res = await axios.get(`${API_URL}/api/${guildId}/premium`);
-        if (res.status !== 200) {
-            notifyError(res.data.error);
-            return;
-        }
-
-        isPremium = res.data.premium;
     }
 
     async function loadSettings() {
@@ -120,7 +109,6 @@
     }
 
     withLoadingScreen(async () => await Promise.all([
-        loadPremium(),
         loadSettings()
     ]));
 </script>

@@ -138,7 +138,7 @@ func UpdatePanel(c *gin.Context) {
 		// TODO: Use proper context
 		_ = rest.DeleteMessage(c, botContext.Token, botContext.RateLimiter, existing.ChannelId, existing.MessageId)
 
-		messageData := data.IntoPanelMessageData(existing.CustomId, true)
+		messageData := data.IntoPanelMessageData(existing.CustomId)
 		newMessageId, err = messageData.send(botContext)
 		if err != nil {
 			var unwrapped request.RestError
@@ -298,7 +298,7 @@ func UpdatePanel(c *gin.Context) {
 			return
 		}
 
-		messageData := multiPanelIntoMessageData(multiPanel, true)
+		messageData := multiPanelIntoMessageData(multiPanel)
 
 		messageId, err := messageData.send(botContext, panels)
 		if err != nil {

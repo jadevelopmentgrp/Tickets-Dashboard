@@ -46,7 +46,7 @@
     export let currentRoute;
     let guildId = currentRoute.namedParams.id;
 
-    let isPremium = false;
+    let isPremium = true;
     let tags = {};
     let editData;
     let editId;
@@ -160,28 +160,11 @@
         for (const id in tags) {
             tags[id].use_embed = tags[id].embed !== null;
         }
-
-        if (!isPremium) {
-            for (const id in tags) {
-                tags[id].use_guild_commands = false;
-            }
-        }
-    }
-
-    async function loadPremium() {
-        const res = await axios.get(`${API_URL}/api/${guildId}/premium`);
-        if (res.status !== 200) {
-            notifyError(res.data.error);
-            return;
-        }
-
-        isPremium = res.data.premium;
     }
 
     withLoadingScreen(async () => {
         setDefaultHeaders();
 
-        await loadPremium();
         await loadTags(); // Depends on isPremium
     });
 </script>

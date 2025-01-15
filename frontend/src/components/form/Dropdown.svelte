@@ -2,11 +2,6 @@
   {#if label !== undefined}
     <div class="label-wrapper">
       <label for="input" class="form-label">{label}</label>
-      {#if premiumBadge}
-        <div style="margin-bottom: 5px">
-          <PremiumBadge />
-        </div>
-      {/if}
     </div>
   {/if}
   <select id="input" class="form-input" on:change bind:value={value} {disabled} style="margin: 0">
@@ -28,8 +23,6 @@
 </style>
 
 <script>
-    import PremiumBadge from "../PremiumBadge.svelte";
-
     export let value;
     export let label;
     export let disabled = false;
@@ -38,6 +31,4 @@
     export let col2 = false;
     export let col3 = false;
     export let col4 = false;
-
-    export let premiumBadge = false;
 </script>

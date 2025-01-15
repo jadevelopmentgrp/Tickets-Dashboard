@@ -199,7 +199,7 @@ func StartServer(logger *zap.Logger, sm *livechat.SocketManager) {
 		userGroup.GET("/permissionlevel", api.GetPermissionLevel)
 
 		{
-			whitelabelGroup := userGroup.Group("/whitelabel", middleware.VerifyWhitelabel(true))
+			whitelabelGroup := userGroup.Group("/whitelabel")
 
 			whitelabelGroup.GET("/", api_whitelabel.WhitelabelGet)
 			whitelabelGroup.GET("/errors", api_whitelabel.WhitelabelGetErrors)

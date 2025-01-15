@@ -62,13 +62,13 @@
                 {/if}
             </div>
             <div class="incomplete-row">
-                <Dropdown col3 label="Exit Survey Form" premiumBadge={true} bind:value={data.exit_survey_form_id} disabled={!isPremium}>
+                <Dropdown col3 label="Exit Survey Form" bind:value={data.exit_survey_form_id}>
                     <option value=null>None</option>
                     {#each forms as form}
                         <option value={form.form_id}>{form.title}</option>
                     {/each}
                 </Dropdown>
-                <Dropdown col3 label="Awaiting Response Category" premiumBadge={true} bind:value={data.pending_category} disabled={!isPremium}>
+                <Dropdown col3 label="Awaiting Response Category" bind:value={data.pending_category}>
                     <option value="">Disabled</option>
                     {#each channels as channel}
                         {#if channel.type === 4}
@@ -177,20 +177,20 @@
 </form>
 
 <script>
+    import ChannelDropdown from "../ChannelDropdown.svelte";
+    import Colour from "../form/Colour.svelte";
     import Input from "../form/Input.svelte";
     import Textarea from "../form/Textarea.svelte";
-    import Colour from "../form/Colour.svelte";
-    import ChannelDropdown from "../ChannelDropdown.svelte";
 
-    import {onMount} from 'svelte';
-    import {colourToInt, intToColour} from "../../js/util";
-    import CategoryDropdown from "../CategoryDropdown.svelte";
-    import EmojiInput from "../form/EmojiInput.svelte";
-    import Dropdown from "../form/Dropdown.svelte";
+    import { onMount } from 'svelte';
     import Toggle from "svelte-toggle";
-    import Checkbox from "../form/Checkbox.svelte";
+    import { colourToInt, intToColour } from "../../js/util";
+    import CategoryDropdown from "../CategoryDropdown.svelte";
     import Collapsible from "../Collapsible.svelte";
     import EmbedForm from "../EmbedForm.svelte";
+    import Checkbox from "../form/Checkbox.svelte";
+    import Dropdown from "../form/Dropdown.svelte";
+    import EmojiInput from "../form/EmojiInput.svelte";
     import WrappedSelect from "../WrappedSelect.svelte";
     import AccessControlList from "./AccessControlList.svelte";
 
@@ -206,7 +206,6 @@
     export let emojis = [];
     export let teams = [];
     export let forms = [];
-    export let isPremium = false;
 
     let teamsWithDefault = [];
     let mentionItems = [];
