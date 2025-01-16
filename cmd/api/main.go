@@ -6,6 +6,7 @@ import (
 	"net/http/pprof"
 
 	"github.com/jadevelopmentgrp/Ticket-Worker/i18n"
+	archiverclient "github.com/jadevelopmentgrp/Tickets-Archiver-Client"
 	app "github.com/jadevelopmentgrp/Tickets-Dashboard/app/http"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/app/http/endpoints/api/ticket/livechat"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/config"

@@ -86,6 +86,7 @@ require (
 	github.com/jackc/pgx/v5 v5.6.0 // indirect
 	github.com/jackc/puddle v1.3.0 // indirect
 	github.com/jackc/puddle/v2 v2.2.1 // indirect
+	github.com/jadevelopmentgrp/Tickets-Archiver-Client v0.0.0-20250114190038-073ecc9123c2 // indirect
 	github.com/jedib0t/go-pretty/v6 v6.5.6 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/juju/ratelimit v1.0.2 // indirect
