@@ -12,13 +12,10 @@ import (
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/config"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/database"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/redis"
-	"github.com/jadevelopmentgrp/Tickets-Dashboard/rpc"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/rpc/cache"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 	"github.com/jadevelopmentgrp/Tickets-Utilities/chatrelay"
-	"github.com/jadevelopmentgrp/Tickets-Utilities/model"
 	"github.com/jadevelopmentgrp/Tickets-Utilities/observability"
-	"github.com/jadevelopmentgrp/Tickets-Utilities/premium"
 	"github.com/jadevelopmentgrp/Tickets-Utilities/secureproxy"
 	"github.com/rxdn/gdl/rest/request"
 	"go.uber.org/zap"
@@ -79,17 +76,6 @@ func main() {
 	go socketManager.Run()
 
 	go ListenChat(redis.Client, socketManager)
-
-	if !config.Conf.Debug {
-		rpc.PremiumClient = premium.NewPremiumLookupClient(
-			redis.Client.Client,
-			cache.Instance.PgCache,
-			database.Client,
-		)
-	} else {
-		c := premium.NewMockLookupClient(premium.Whitelabel, model.EntitlementSourcePatreon)
-		rpc.PremiumClient = &c
-	}
 
 	logger.Info("Starting server")
 	app.StartServer(logger, socketManager)

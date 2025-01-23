@@ -109,7 +109,7 @@ func MultiPanelUpdate(c *gin.Context) {
 	cancel()
 
 	// send new message
-	messageData := data.IntoMessageData(true)
+	messageData := data.IntoMessageData()
 	messageId, err := messageData.send(botContext, panels)
 	if err != nil {
 		var unwrapped request.RestError

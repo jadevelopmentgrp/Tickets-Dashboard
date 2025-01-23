@@ -66,7 +66,7 @@ func MultiPanelResend(ctx *gin.Context) {
 	}
 
 	// send new message
-	messageData := multiPanelIntoMessageData(multiPanel, true)
+	messageData := multiPanelIntoMessageData(multiPanel)
 	messageId, err := messageData.send(botContext, panels)
 	if err != nil {
 		var unwrapped request.RestError

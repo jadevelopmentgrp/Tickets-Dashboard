@@ -56,7 +56,7 @@ func ResendPanel(ctx *gin.Context) {
 		}
 	}
 
-	messageData := panelIntoMessageData(panel, true)
+	messageData := panelIntoMessageData(panel)
 	msgId, err := messageData.send(botContext)
 	if err != nil {
 		var unwrapped request.RestError

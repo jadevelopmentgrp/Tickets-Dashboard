@@ -6,6 +6,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	archiverclient "github.com/jadevelopmentgrp/Tickets-Archiver-Client"
 	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
 )
