@@ -8,12 +8,12 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/jadevelopmentgrp/Ticket-Worker/bot/command/manager"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/app"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/botcontext"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/database"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/redis"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/utils"
+	"github.com/jadevelopmentgrp/Tickets-Worker/bot/command/manager"
 	"github.com/rxdn/gdl/rest"
 )
 
@@ -79,7 +79,7 @@ func createInteractions(cm *manager.CommandManager, botId uint64, token string) 
 		return err
 	}
 
-	commands, _ := cm.BuildCreatePayload(true, nil)
+	commands := cm.BuildCreatePayload()
 
 	// TODO: Use proper context
 	_, err = rest.ModifyGlobalCommands(context.Background(), token, botContext.RateLimiter, botId, commands)

@@ -234,7 +234,6 @@ func validateFormId(ctx PanelValidationContext) validation.ValidationFunc {
 	return validatedNullableFormId(ctx.GuildId, ctx.Data.FormId)
 }
 
-// Check premium on the worker side to maintain settings if user unsubscribes and later resubscribes
 func validateExitSurveyFormId(ctx PanelValidationContext) validation.ValidationFunc {
 	return validatedNullableFormId(ctx.GuildId, ctx.Data.ExitSurveyFormId)
 }

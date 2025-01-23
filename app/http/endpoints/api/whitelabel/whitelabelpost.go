@@ -10,7 +10,6 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/jadevelopmentgrp/Ticket-Worker/bot/command/manager"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/app"
 	dbclient "github.com/jadevelopmentgrp/Tickets-Dashboard/database"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/redis"
@@ -18,6 +17,7 @@ import (
 	database "github.com/jadevelopmentgrp/Tickets-Database"
 	"github.com/jadevelopmentgrp/Tickets-Utilities/tokenchange"
 	"github.com/jadevelopmentgrp/Tickets-Utilities/whitelabeldelete"
+	"github.com/jadevelopmentgrp/Tickets-Worker/bot/command/manager"
 	"github.com/rxdn/gdl/objects/application"
 	"github.com/rxdn/gdl/rest"
 	"github.com/rxdn/gdl/rest/request"

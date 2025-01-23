@@ -5,7 +5,6 @@ import (
 	"net/http"
 	"net/http/pprof"
 
-	"github.com/jadevelopmentgrp/Ticket-Worker/i18n"
 	archiverclient "github.com/jadevelopmentgrp/Tickets-Archiver-Client"
 	app "github.com/jadevelopmentgrp/Tickets-Dashboard/app/http"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/app/http/endpoints/api/ticket/livechat"
@@ -17,6 +16,7 @@ import (
 	"github.com/jadevelopmentgrp/Tickets-Utilities/chatrelay"
 	"github.com/jadevelopmentgrp/Tickets-Utilities/observability"
 	"github.com/jadevelopmentgrp/Tickets-Utilities/secureproxy"
+	"github.com/jadevelopmentgrp/Tickets-Worker/i18n"
 	"github.com/rxdn/gdl/rest/request"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -37,7 +37,7 @@ func main() {
 		logger, err = loggerConfig.Build(
 			zap.AddCaller(),
 			zap.AddStacktrace(zap.ErrorLevel),
-			zap.WrapCore(observability.ZapSentryAdapter(observability.EnvironmentProduction)),
+			zap.WrapCore(observability.ZapAdapter()),
 		)
 	} else {
 		loggerConfig := zap.NewDevelopmentConfig()
