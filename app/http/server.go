@@ -7,6 +7,7 @@ import (
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/app/http/endpoints/api"
 	"github.com/jadevelopmentgrp/Tickets-Dashboard/app/http/endpoints/api/admin/botstaff"
 	api_blacklist "github.com/jadevelopmentgrp/Tickets-Dashboard/app/http/endpoints/api/blacklist"
+	api_import "github.com/jadevelopmentgrp/Tickets-Dashboard/app/http/endpoints/api/export"
 	api_forms "github.com/jadevelopmentgrp/Tickets-Dashboard/app/http/endpoints/api/forms"
 	api_integrations "github.com/jadevelopmentgrp/Tickets-Dashboard/app/http/endpoints/api/integrations"
 	api_panels "github.com/jadevelopmentgrp/Tickets-Dashboard/app/http/endpoints/api/panel"
@@ -120,6 +121,10 @@ func StartServer(logger *zap.Logger, sm *livechat.SocketManager) {
 		// Must be readable to load transcripts page
 		guildAuthApiSupport.GET("/settings", api_settings.GetSettingsHandler)
 		guildAuthApiAdmin.POST("/settings", api_settings.UpdateSettingsHandler)
+
+		guildAuthApiAdmin.POST("/import", api_import.ImportHandler)
+		guildAuthApiAdmin.GET("/import/runs", api_import.GetRuns)
+		guildAuthApiAdmin.GET("/import/presign", api_import.PresignURL)
 
 		guildAuthApiSupport.GET("/blacklist", api_blacklist.GetBlacklistHandler)
 		guildAuthApiSupport.POST("/blacklist", api_blacklist.AddBlacklistHandler)

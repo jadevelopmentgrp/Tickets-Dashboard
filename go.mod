@@ -22,9 +22,10 @@ require (
 	github.com/jackc/pgx/v4 v4.18.3
 	github.com/jadevelopmentgrp/Tickets-Archiver v1.0.3
 	github.com/jadevelopmentgrp/Tickets-Archiver-Client v1.0.1
-	github.com/jadevelopmentgrp/Tickets-Database v1.0.5
+	github.com/jadevelopmentgrp/Tickets-Database v1.0.7
 	github.com/jadevelopmentgrp/Tickets-Utilities v1.0.2
 	github.com/jadevelopmentgrp/Tickets-Worker v1.5.1
+	github.com/minio/minio-go/v7 v7.0.73
 	github.com/penglongli/gin-metrics v0.1.10
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.14.0
@@ -91,7 +92,6 @@ require (
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/minio/md5-simd v1.1.2 // indirect
-	github.com/minio/minio-go/v7 v7.0.73 // indirect
 	github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect

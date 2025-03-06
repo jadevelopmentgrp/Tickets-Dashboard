@@ -313,8 +313,8 @@ github.com/jadevelopmentgrp/Tickets-Archiver v1.0.3 h1:QtlZRz0sn5rq0A+1fSFqgWKuH
 github.com/jadevelopmentgrp/Tickets-Archiver v1.0.3/go.mod h1:ci1Eb95fxJqBecekDsedQnoKhY55jrhje6GoKk5KxHI=
 github.com/jadevelopmentgrp/Tickets-Archiver-Client v1.0.1 h1:mE/Nb574lf2YZYMdxwTJOpEDxqz4McUSnfNkPC49F18=
 github.com/jadevelopmentgrp/Tickets-Archiver-Client v1.0.1/go.mod h1:pJCwSZm/Kc3wX3XZFl4Aauelqtg9etptfih2s9WEqoM=
-github.com/jadevelopmentgrp/Tickets-Database v1.0.5 h1:JEvDkmMDwiGKFvR162025H9A+SU9zLMiorqyFD5Fz0c=
-github.com/jadevelopmentgrp/Tickets-Database v1.0.5/go.mod h1:NJT4hvqk916DJsCW6pfNYfxvF6wpM/UCj/72Yk0KY5k=
+github.com/jadevelopmentgrp/Tickets-Database v1.0.7 h1:XQb19nfnb6+d62U1RmA48w4yTTWPvvY/zwJsKgKt9AU=
+github.com/jadevelopmentgrp/Tickets-Database v1.0.7/go.mod h1:NJT4hvqk916DJsCW6pfNYfxvF6wpM/UCj/72Yk0KY5k=
 github.com/jadevelopmentgrp/Tickets-Utilities v1.0.2 h1:8qxok0hQF4jFHQP0Bc3LNZ/c6IUjSpkxrAZlMOG4CEM=
 github.com/jadevelopmentgrp/Tickets-Utilities v1.0.2/go.mod h1:BH0S6/78qSIGDPSBYodV2Xf8m7qF7qVBU4LLJlOjQ84=
 github.com/jadevelopmentgrp/Tickets-Worker v1.5.1 h1:wTy3CPz5/KNon8SYjXzX0G4esNWZrvk0HmC2dEkCGQQ=
